@@ -1,0 +1,97 @@
+
+/* Additional custom styles to complement the Webflow CSS */
+/* This file can contain any custom styles you want to add */
+
+/* Basic reset and typography improvements */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom timeline animations */
+.timeline_progress-bar {
+    transition: height 0.3s ease;
+}
+
+.timeline_item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.timeline_item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effects for buttons */
+.button-icon-small,
+.button-icon-small-secondary {
+    transition: transform 0.3s ease;
+}
+
+.button-icon-small:hover,
+.button-icon-small-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* Quote wrapper animations */
+.timeline_quote-wrapper-copy {
+    transition: transform 0.3s ease;
+}
+
+.timeline_quote-wrapper-copy:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .timeline_left,
+    .timeline_right {
+        width: 100%;
+    }
+    
+    .timeline_centre {
+        display: none;
+    }
+    
+    .timeline_component {
+        padding: 0 20px;
+    }
+}
+
+/* Loading states */
+.timeline_image-wrapper img {
+    transition: opacity 0.3s ease;
+}
+
+.timeline_image-wrapper img:not([src]) {
+    opacity: 0;
+}
+
+/* Print styles */
+@media print {
+    .hero-nav,
+    .section-timeline-cta,
+    .section-footer {
+        display: none;
+    }
+    
+    .timeline_progress {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+    }
+}
