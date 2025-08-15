@@ -57,7 +57,10 @@ html {
 
 /* Responsive improvements */
 @media (max-width: 768px) {
-    .timeline_left,
+    .timeline_left {
+        width: 50%
+    }
+    
     .timeline_right {
         width: 100%;
     }
@@ -69,11 +72,8 @@ html {
     .timeline_component {
         padding: 0 20px;
     }
-}
 
-    .text-colour-lightgrey {
-        width: 50%;
-}
+    
 
 
 /* Loading states */
