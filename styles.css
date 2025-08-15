@@ -56,9 +56,17 @@ html {
 
 /* Responsive improvements */
 @media (max-width: 768px) {
-    .timeline_left,
+    
+    .timeline_left {
+        
+
+    }
+
     .timeline_right {
-        width: 100%;
+        position : sticky;
+        right: 0;
+        width:100%;
+
     }
     
     .timeline_centre {
@@ -67,6 +75,11 @@ html {
     
     .timeline_component {
         padding: 0 20px;
+    }
+
+    .vertical-text {
+        /* Set the writing mode to vertical */
+        writing-mode: vertical-lr;
     }
 }
 
