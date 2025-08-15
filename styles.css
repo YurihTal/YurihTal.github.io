@@ -71,6 +71,11 @@ html {
     }
 }
 
+    .text-colour-lightgrey {
+        width: 50%;
+}
+
+
 /* Loading states */
 .timeline_image-wrapper img {
     transition: opacity 0.3s ease;
