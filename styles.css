@@ -56,11 +56,6 @@ html {
 
 /* Responsive improvements */
 @media (max-width: 768px) {
-    
-    .timeline_left {
-        
-
-    }
 
     .timeline_right {
         position : sticky;
