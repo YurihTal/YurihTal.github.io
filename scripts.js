@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 if (navButtonText) {
-                    navButtonText.textContent = 'Chess.com Puzzle Rating: Unavailable';
+                    navButtonText.textContent = '🧩: N/A';
                 }
             }
         }
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update navigation button text with live rating
             if (navButtonText) {
-                navButtonText.textContent = `Chess.com Puzzle Rating: ${rating.toLocaleString()}`;
+                navButtonText.textContent = `🧩: ${rating.toLocaleString()}`;
             }
             
             if (changeElement && change !== 0) {

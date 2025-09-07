@@ -109,26 +109,15 @@ html {
 }
 
 /* ===== CHESS.COM NAVIGATION BUTTON ===== */
-/* Styling for the Chess.com button in navigation with live rating */
+/* Styling for the compact Chess.com puzzle rating button */
 #chess-nav-button {
-    min-width: auto !important;
     white-space: nowrap;
 }
 
 #chess-nav-text {
-    font-size: 0.8em;
-    line-height: 1.2;
-    max-width: 150px;
+    font-size: 0.9em;
+    font-weight: bold;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Show full text on hover */
-#chess-nav-button:hover #chess-nav-text {
-    overflow: visible;
-    white-space: normal;
-    max-width: none;
 }
 
 /* ===== FUTURE FEATURES STYLING ===== */
