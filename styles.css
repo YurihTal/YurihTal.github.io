@@ -54,6 +54,17 @@ html {
     transform: translateY(-5px);
 }
 
+/* ===== WEBFLOW BADGE REMOVAL ===== */
+/* Hide any Webflow badges that might be injected by scripts */
+.w-webflow-badge,
+[class*="webflow-badge"],
+[class*="w-webflow"],
+a[href*="webflow.com"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
 /* ===== FOOTER BUTTON IMPROVEMENTS ===== */
 /* Fix footer button logos to match navigation size */
 .section-footer .button-icon {
