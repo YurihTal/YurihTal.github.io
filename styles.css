@@ -93,5 +93,121 @@ html {
     
     body {
         font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    /* Ensure good contrast for print */
+    .text-colour-lightgrey {
+        color: #333 !important;
+    }
+    
+    /* Page breaks for better print layout */
+    .timeline_item {
+        page-break-inside: avoid;
+        margin-bottom: 20px;
     }
 }
+
+/* ===== FUTURE FEATURES STYLING ===== */
+/* Placeholder styles for upcoming Chess.com and certification features */
+
+/* Chess.com puzzle rating card */
+.chess-rating-wrapper {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chess-rating-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.chess-rating-wrapper h5 {
+    margin: 0 0 10px 0;
+    color: #ecf0f1;
+}
+
+#chess-rating-display {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.rating-change.positive {
+    color: #2ecc71; /* Green for positive rating changes */
+}
+
+.rating-change.negative {
+    color: #e74c3c; /* Red for negative rating changes */
+}
+
+/* Certification badges container */
+#certifications-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.certification-badge {
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.certification-badge:hover {
+    transform: scale(1.1);
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+/* Enhanced accessibility for screen readers and keyboard navigation */
+
+/* Focus styles for keyboard navigation */
+.button-icon-small:focus,
+.button-icon-small-secondary:focus,
+#contact-email:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .timeline_item {
+        border: 1px solid;
+    }
+    
+    .text-colour-lightgrey {
+        color: #000 !important;
+    }
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* ===== DARK MODE SUPPORT (FUTURE) ===== */
+/* Placeholder for future dark mode implementation */
+/*
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .timeline_item {
+        background-color: #2d2d2d;
+    }
+}
+*/

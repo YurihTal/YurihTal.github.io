@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/init)",
+      "Bash(git remote get-url:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
