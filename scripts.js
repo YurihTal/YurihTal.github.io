@@ -286,7 +286,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 if (navButtonText) {
-                    navButtonText.textContent = '🧩: N/A';
+                    const errorText = '🧩: N/A';
+                    navButtonText.textContent = errorText;
+                    navButtonText.dataset.correctText = errorText;
                 }
             }
         }
@@ -302,9 +304,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 animateNumber(ratingElement, rating);
             }
             
-            // Update navigation button text with live rating
+            // Update navigation button text with live rating and protect from Webflow overrides
             if (navButtonText) {
-                navButtonText.textContent = `🧩: ${rating.toLocaleString()}`;
+                const newText = `🧩: ${rating.toLocaleString()}`;
+                navButtonText.textContent = newText;
+                
+                // Store the correct text and set up protection against Webflow changes
+                navButtonText.dataset.correctText = newText;
+                
+                // Set up a mutation observer to prevent text changes
+                if (!navButtonText.dataset.protected) {
+                    navButtonText.dataset.protected = 'true';
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                                const correctText = navButtonText.dataset.correctText;
+                                if (correctText && navButtonText.textContent !== correctText) {
+                                    navButtonText.textContent = correctText;
+                                }
+                            }
+                        });
+                    });
+                    observer.observe(navButtonText, { 
+                        childList: true, 
+                        subtree: true, 
+                        characterData: true 
+                    });
+                }
             }
             
             if (changeElement && change !== 0) {
