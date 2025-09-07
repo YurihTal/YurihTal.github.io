@@ -54,6 +54,21 @@ html {
     transform: translateY(-5px);
 }
 
+/* ===== FOOTER BUTTON IMPROVEMENTS ===== */
+/* Fix footer button logos to match navigation size */
+.section-footer .button-icon {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    object-fit: contain !important;
+}
+
+.section-footer .button-icon-small,
+.section-footer .button-icon-small-secondary {
+    padding: 12px !important;
+}
+
 /* ===== MOBILE RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     /* Mobile Navigation - All 4 buttons in single horizontal row */
