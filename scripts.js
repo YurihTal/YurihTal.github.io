@@ -242,6 +242,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const username = 'Yuri_Tal';
         let previousRating = localStorage.getItem('chess-previous-rating') || 0;
+        let currentRating = null;
+        
+        // Function to aggressively maintain button text
+        function maintainButtonText() {
+            const navButtonText = document.getElementById('chess-nav-text');
+            if (!navButtonText) return;
+            
+            let correctText;
+            if (currentRating === 'N/A') {
+                correctText = '🧩: N/A';
+            } else if (currentRating && typeof currentRating === 'number') {
+                correctText = `🧩: ${currentRating.toLocaleString()}`;
+            } else {
+                correctText = '🧩: Loading...';
+            }
+            
+            if (navButtonText.textContent !== correctText) {
+                console.log('🔧 Fixing button text from:', navButtonText.textContent, 'to:', correctText);
+                navButtonText.textContent = correctText;
+                
+                // Also try innerHTML in case textContent is being overridden
+                navButtonText.innerHTML = correctText;
+                
+                // Force style updates to prevent CSS from overriding
+                navButtonText.style.cssText = navButtonText.style.cssText;
+            }
+        }
+        
+        // Run maintenance function every 100ms to catch any overwrites
+        setInterval(maintainButtonText, 100);
         
         // Fetch current puzzle rating from Chess.com API
         async function fetchChessRating() {
@@ -258,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Get puzzle rating from tactics section
                 if (data.tactics && data.tactics.highest) {
-                    const currentRating = data.tactics.highest.rating;
+                    currentRating = data.tactics.highest.rating; // Update the global currentRating variable
                     const ratingChange = previousRating ? (currentRating - parseInt(previousRating)) : 0;
                     
                     updateRatingDisplay(currentRating, ratingChange);
@@ -276,20 +306,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             } catch (error) {
                 console.error('Error fetching chess rating:', error);
-                // Show error state in card and navigation button
+                // Show error state in card - navigation button handled by maintainButtonText
                 const ratingElement = document.getElementById('chess-rating');
-                const navButtonText = document.getElementById('chess-nav-text');
                 
                 if (ratingElement) {
                     ratingElement.textContent = 'Unavailable';
                     chessCard.style.display = 'block';
                 }
                 
-                if (navButtonText) {
-                    const errorText = '🧩: N/A';
-                    navButtonText.textContent = errorText;
-                    navButtonText.dataset.correctText = errorText;
-                }
+                // Set currentRating to null so maintainButtonText shows error state
+                currentRating = 'N/A';
             }
         }
         
@@ -297,41 +323,14 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateRatingDisplay(rating, change) {
             const ratingElement = document.getElementById('chess-rating');
             const changeElement = document.getElementById('chess-rating-change');
-            const navButtonText = document.getElementById('chess-nav-text');
             
             if (ratingElement) {
                 // Animate number counting up to current rating
                 animateNumber(ratingElement, rating);
             }
             
-            // Update navigation button text with live rating and protect from Webflow overrides
-            if (navButtonText) {
-                const newText = `🧩: ${rating.toLocaleString()}`;
-                navButtonText.textContent = newText;
-                
-                // Store the correct text and set up protection against Webflow changes
-                navButtonText.dataset.correctText = newText;
-                
-                // Set up a mutation observer to prevent text changes
-                if (!navButtonText.dataset.protected) {
-                    navButtonText.dataset.protected = 'true';
-                    const observer = new MutationObserver(function(mutations) {
-                        mutations.forEach(function(mutation) {
-                            if (mutation.type === 'childList' || mutation.type === 'characterData') {
-                                const correctText = navButtonText.dataset.correctText;
-                                if (correctText && navButtonText.textContent !== correctText) {
-                                    navButtonText.textContent = correctText;
-                                }
-                            }
-                        });
-                    });
-                    observer.observe(navButtonText, { 
-                        childList: true, 
-                        subtree: true, 
-                        characterData: true 
-                    });
-                }
-            }
+            // Navigation button text is now handled by maintainButtonText function
+            console.log('🎯 Rating updated to:', rating, 'Change:', change);
             
             if (changeElement && change !== 0) {
                 // Show rating change with appropriate color
