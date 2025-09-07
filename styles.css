@@ -71,14 +71,16 @@ html {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-width: 48px !important;
-        max-width: 48px !important;
-        min-height: 48px !important;
-        max-height: 48px !important;
-        padding: 10px !important;
+        min-width: 52px !important;
+        max-width: 52px !important;
+        min-height: 52px !important;
+        max-height: 52px !important;
+        padding: 12px !important;
         margin: 0 !important;
         border-radius: 8px !important;
         transition: transform 0.2s ease, background-color 0.2s ease;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* Hover effect for mobile buttons */
@@ -95,11 +97,24 @@ html {
     }
     
     .button-icon {
-        width: 20px !important;
-        height: 20px !important;
-        max-width: 20px !important;
-        max-height: 20px !important;
-        object-fit: contain;
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+        object-fit: contain !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Ensure icons are visible and properly sized */
+    .button-icon-small .button-icon,
+    .button-icon-small-secondary .button-icon {
+        width: 24px !important;
+        height: 24px !important;
+        display: block !important;
+        opacity: 1 !important;
+        filter: none !important;
     }
     
     /* Special handling for Chess.com button text on mobile */
@@ -110,37 +125,45 @@ html {
     /* Timeline Mobile Layout */
     .timeline_item {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         margin-bottom: 30px;
+        align-items: flex-start;
     }
     
     .timeline_left {
-        width: 100% !important;
+        width: 80px !important;
+        flex-shrink: 0;
         order: 1;
-        margin-bottom: 15px;
-        text-align: left !important;
+        margin-right: 15px;
+        text-align: center !important;
     }
     
     .timeline_right {
-        width: 100% !important;
+        width: calc(100% - 95px) !important;
         order: 2;
+        flex: 1;
     }
     
     .timeline_centre {
         display: none;
     }
     
-    /* Make dates vertical (top to bottom) on mobile */
+    /* Keep dates vertical (writing-mode vertical) on mobile alongside content */
     .timeline_date-text.vertical-text {
-        writing-mode: horizontal-tb !important; /* Override vertical writing mode */
+        writing-mode: vertical-lr !important; /* Keep vertical writing mode */
+        text-orientation: mixed;
         transform: none !important;
-        font-size: 0.9em;
+        font-size: 0.8em;
         font-weight: bold;
         color: #666;
-        text-align: left;
-        padding: 8px 0;
-        border-left: 3px solid #333;
-        padding-left: 12px;
+        text-align: center;
+        padding: 8px 4px;
+        border-right: 2px solid #333;
+        height: auto;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .timeline_component {
