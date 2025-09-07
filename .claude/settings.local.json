@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(/init)",
-      "Bash(git remote get-url:*)"
+      "Bash(git remote get-url:*)",
+      "Bash(git remote set-url:*)"
     ],
     "deny": [],
     "ask": []

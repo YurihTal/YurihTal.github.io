@@ -276,11 +276,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             } catch (error) {
                 console.error('Error fetching chess rating:', error);
-                // Show error state in card
+                // Show error state in card and navigation button
                 const ratingElement = document.getElementById('chess-rating');
+                const navButtonText = document.getElementById('chess-nav-text');
+                
                 if (ratingElement) {
                     ratingElement.textContent = 'Unavailable';
                     chessCard.style.display = 'block';
+                }
+                
+                if (navButtonText) {
+                    navButtonText.textContent = 'Chess.com Puzzle Rating: Unavailable';
                 }
             }
         }
@@ -289,10 +295,16 @@ document.addEventListener('DOMContentLoaded', function() {
         function updateRatingDisplay(rating, change) {
             const ratingElement = document.getElementById('chess-rating');
             const changeElement = document.getElementById('chess-rating-change');
+            const navButtonText = document.getElementById('chess-nav-text');
             
             if (ratingElement) {
                 // Animate number counting up to current rating
                 animateNumber(ratingElement, rating);
+            }
+            
+            // Update navigation button text with live rating
+            if (navButtonText) {
+                navButtonText.textContent = `Chess.com Puzzle Rating: ${rating.toLocaleString()}`;
             }
             
             if (changeElement && change !== 0) {
