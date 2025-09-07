@@ -56,13 +56,16 @@ html {
 
 /* ===== MOBILE RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    /* Mobile Navigation - Small square buttons with only logos */
+    /* Mobile Navigation - All 4 buttons in single horizontal row */
     .hero-nav_button-wrapper {
         display: flex !important;
-        gap: 8px;
+        gap: 4px;
         justify-content: center;
-        flex-wrap: wrap;
-        padding: 15px 0;
+        flex-wrap: nowrap !important; /* Force single row */
+        padding: 15px 5px;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
     }
     
     .button-icon-small,
@@ -70,19 +73,20 @@ html {
         display: flex !important; /* Override hide-mobile class */
         align-items: center;
         justify-content: center;
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        max-width: 40px !important;
-        min-height: 40px !important;
-        max-height: 40px !important;
-        padding: 8px !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        max-width: 36px !important;
+        min-height: 36px !important;
+        max-height: 36px !important;
+        padding: 6px !important;
         margin: 0 !important;
         border-radius: 6px !important;
         transition: all 0.2s ease;
         background-color: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.15);
         overflow: hidden;
+        flex-shrink: 0; /* Prevent buttons from shrinking */
     }
     
     /* Hover effect for mobile buttons */
@@ -101,14 +105,14 @@ html {
         visibility: hidden !important;
     }
     
-    /* Make logo images visible and properly sized */
+    /* Make logo images visible and properly sized for smaller buttons */
     .button-icon {
-        width: 22px !important;
-        height: 22px !important;
-        max-width: 22px !important;
-        max-height: 22px !important;
-        min-width: 22px !important;
-        min-height: 22px !important;
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
         object-fit: contain !important;
         object-position: center !important;
         display: block !important;
@@ -118,12 +122,12 @@ html {
         background: transparent !important;
     }
     
-    /* Force visibility for all button icons */
+    /* Force visibility for all button icons with adjusted size */
     .button-icon-small img,
     .button-icon-small-secondary img,
     .hero-nav_button-wrapper img {
-        width: 22px !important;
-        height: 22px !important;
+        width: 20px !important;
+        height: 20px !important;
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
