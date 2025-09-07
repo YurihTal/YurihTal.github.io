@@ -56,70 +56,79 @@ html {
 
 /* ===== MOBILE RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    /* Mobile Navigation - Show all 4 icons as small squares */
+    /* Mobile Navigation - Small square buttons with only logos */
     .hero-nav_button-wrapper {
         display: flex !important;
-        gap: 6px;
+        gap: 8px;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 10px 0;
+        padding: 15px 0;
     }
     
     .button-icon-small,
     .button-icon-small-secondary {
         display: flex !important; /* Override hide-mobile class */
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-width: 52px !important;
-        max-width: 52px !important;
-        min-height: 52px !important;
-        max-height: 52px !important;
-        padding: 12px !important;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        max-width: 40px !important;
+        min-height: 40px !important;
+        max-height: 40px !important;
+        padding: 8px !important;
         margin: 0 !important;
-        border-radius: 8px !important;
-        transition: transform 0.2s ease, background-color 0.2s ease;
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px !important;
+        transition: all 0.2s ease;
+        background-color: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        overflow: hidden;
     }
     
     /* Hover effect for mobile buttons */
     .button-icon-small:hover,
     .button-icon-small-secondary:hover {
-        transform: translateY(-2px);
-        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+        background-color: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
     
-    /* Hide text labels on mobile, show only icons */
+    /* Hide ALL text labels on mobile */
     .button-icon-small div,
-    .button-icon-small-secondary div {
+    .button-icon-small-secondary div,
+    #chess-nav-text {
         display: none !important;
+        visibility: hidden !important;
     }
     
+    /* Make logo images visible and properly sized */
     .button-icon {
-        width: 24px !important;
-        height: 24px !important;
-        max-width: 24px !important;
-        max-height: 24px !important;
+        width: 22px !important;
+        height: 22px !important;
+        max-width: 22px !important;
+        max-height: 22px !important;
+        min-width: 22px !important;
+        min-height: 22px !important;
         object-fit: contain !important;
+        object-position: center !important;
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
+        filter: none !important;
+        background: transparent !important;
     }
     
-    /* Ensure icons are visible and properly sized */
-    .button-icon-small .button-icon,
-    .button-icon-small-secondary .button-icon {
-        width: 24px !important;
-        height: 24px !important;
+    /* Force visibility for all button icons */
+    .button-icon-small img,
+    .button-icon-small-secondary img,
+    .hero-nav_button-wrapper img {
+        width: 22px !important;
+        height: 22px !important;
         display: block !important;
         opacity: 1 !important;
-        filter: none !important;
-    }
-    
-    /* Special handling for Chess.com button text on mobile */
-    #chess-nav-text {
-        display: none !important;
+        visibility: visible !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
     }
     
     /* Timeline Mobile Layout */
