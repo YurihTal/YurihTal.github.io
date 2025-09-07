@@ -54,19 +54,102 @@ html {
     transform: translateY(-5px);
 }
 
-/* Responsive improvements */
+/* ===== MOBILE RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    .timeline_left,
+    /* Mobile Navigation - Show all 4 icons as small squares */
+    .hero-nav_button-wrapper {
+        display: flex !important;
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+    
+    .button-icon-small,
+    .button-icon-small-secondary {
+        display: flex !important; /* Override hide-mobile class */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px !important;
+        max-width: 48px !important;
+        min-height: 48px !important;
+        max-height: 48px !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    
+    /* Hover effect for mobile buttons */
+    .button-icon-small:hover,
+    .button-icon-small-secondary:hover {
+        transform: translateY(-2px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Hide text labels on mobile, show only icons */
+    .button-icon-small div,
+    .button-icon-small-secondary div {
+        display: none !important;
+    }
+    
+    .button-icon {
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        object-fit: contain;
+    }
+    
+    /* Special handling for Chess.com button text on mobile */
+    #chess-nav-text {
+        display: none !important;
+    }
+    
+    /* Timeline Mobile Layout */
+    .timeline_item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+    
+    .timeline_left {
+        width: 100% !important;
+        order: 1;
+        margin-bottom: 15px;
+        text-align: left !important;
+    }
+    
     .timeline_right {
-        width: 100%;
+        width: 100% !important;
+        order: 2;
     }
     
     .timeline_centre {
         display: none;
     }
     
+    /* Make dates vertical (top to bottom) on mobile */
+    .timeline_date-text.vertical-text {
+        writing-mode: horizontal-tb !important; /* Override vertical writing mode */
+        transform: none !important;
+        font-size: 0.9em;
+        font-weight: bold;
+        color: #666;
+        text-align: left;
+        padding: 8px 0;
+        border-left: 3px solid #333;
+        padding-left: 12px;
+    }
+    
     .timeline_component {
         padding: 0 20px;
+    }
+    
+    /* Timeline progress bar - hide on mobile for cleaner look */
+    .timeline_progress {
+        display: none;
     }
 }
 
