@@ -12,6 +12,12 @@
  * - Future: Dynamic certification badge management
  */
 
+// ===== GLOBAL FUNCTION STUBS =====
+// Create global stubs BEFORE DOMContentLoaded to prevent Webflow script errors
+window.animateTimeline = function() {
+    console.log('animateTimeline called - handled by internal DOMContentLoaded function');
+};
+
 // Wait for DOM to be fully loaded before initializing functionality
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -232,151 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ===== CHESS.COM INTEGRATION =====
-    // Live Chess.com puzzle rating display for user Yuri_Tal
-    function initChessRating() {
-        const chessCard = document.getElementById('chess-rating-card');
-        if (!chessCard) return;
-        
-        console.log('🚀 Initializing Chess.com integration for Yuri_Tal');
-        
-        const username = 'Yuri_Tal';
-        let previousRating = localStorage.getItem('chess-previous-rating') || 0;
-        let currentRating = null;
-        
-        // Function to aggressively maintain button text
-        function maintainButtonText() {
-            const navButtonText = document.getElementById('chess-nav-text');
-            if (!navButtonText) return;
-            
-            let correctText;
-            if (currentRating === 'N/A') {
-                correctText = '🧩: N/A';
-            } else if (currentRating && typeof currentRating === 'number') {
-                correctText = `🧩: ${currentRating.toLocaleString()}`;
-            } else {
-                correctText = '🧩: Loading...';
-            }
-            
-            if (navButtonText.textContent !== correctText) {
-                console.log('🔧 Fixing button text from:', navButtonText.textContent, 'to:', correctText);
-                navButtonText.textContent = correctText;
-                
-                // Also try innerHTML in case textContent is being overridden
-                navButtonText.innerHTML = correctText;
-                
-                // Force style updates to prevent CSS from overriding
-                navButtonText.style.cssText = navButtonText.style.cssText;
-            }
-        }
-        
-        // Run maintenance function every 100ms to catch any overwrites
-        setInterval(maintainButtonText, 100);
-        
-        // Fetch current puzzle rating from Chess.com API
-        async function fetchChessRating() {
-            try {
-                console.log('Fetching Chess.com stats...');
-                const response = await fetch(`https://api.chess.com/pub/player/${username}/stats`);
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                console.log('Chess.com data received:', data);
-                
-                // Get puzzle rating from tactics section
-                if (data.tactics && data.tactics.highest) {
-                    currentRating = data.tactics.highest.rating; // Update the global currentRating variable
-                    const ratingChange = previousRating ? (currentRating - parseInt(previousRating)) : 0;
-                    
-                    updateRatingDisplay(currentRating, ratingChange);
-                    
-                    // Store current rating for next comparison
-                    localStorage.setItem('chess-previous-rating', currentRating.toString());
-                    
-                    // Show the card
-                    chessCard.style.display = 'block';
-                    
-                    console.log(`✅ Chess rating updated: ${currentRating} (${ratingChange >= 0 ? '+' : ''}${ratingChange})`);
-                } else {
-                    console.warn('No tactics data found in Chess.com response');
-                }
-                
-            } catch (error) {
-                console.error('Error fetching chess rating:', error);
-                // Show error state in card - navigation button handled by maintainButtonText
-                const ratingElement = document.getElementById('chess-rating');
-                
-                if (ratingElement) {
-                    ratingElement.textContent = 'Unavailable';
-                    chessCard.style.display = 'block';
-                }
-                
-                // Set currentRating to null so maintainButtonText shows error state
-                currentRating = 'N/A';
-            }
-        }
-        
-        // Update the rating display with animation
-        function updateRatingDisplay(rating, change) {
-            const ratingElement = document.getElementById('chess-rating');
-            const changeElement = document.getElementById('chess-rating-change');
-            
-            if (ratingElement) {
-                // Animate number counting up to current rating
-                animateNumber(ratingElement, rating);
-            }
-            
-            // Navigation button text is now handled by maintainButtonText function
-            console.log('🎯 Rating updated to:', rating, 'Change:', change);
-            
-            if (changeElement && change !== 0) {
-                // Show rating change with appropriate color
-                if (change > 0) {
-                    changeElement.textContent = `+${change}`;
-                    changeElement.className = 'rating-change positive';
-                } else if (change < 0) {
-                    changeElement.textContent = change;
-                    changeElement.className = 'rating-change negative';
-                } else {
-                    changeElement.textContent = '';
-                    changeElement.className = 'rating-change';
-                }
-            }
-        }
-        
-        // Animate number counting effect
-        function animateNumber(element, targetNumber) {
-            const startNumber = parseInt(element.textContent) || 0;
-            const duration = 1500; // 1.5 seconds
-            const startTime = performance.now();
-            
-            function updateNumber(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                
-                // Easing function for smooth animation
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const currentNumber = Math.round(startNumber + (targetNumber - startNumber) * easeOut);
-                
-                element.textContent = currentNumber.toLocaleString();
-                
-                if (progress < 1) {
-                    requestAnimationFrame(updateNumber);
-                }
-            }
-            
-            requestAnimationFrame(updateNumber);
-        }
-        
-        // Initial fetch
-        fetchChessRating();
-        
-        // Update every 10 minutes (Chess.com API rate limit friendly)
-        setInterval(fetchChessRating, 10 * 60 * 1000);
-    }
     
     // ===== CERTIFICATION MANAGEMENT =====
     // Dynamic management of certification badges
@@ -440,6 +301,46 @@ document.addEventListener('DOMContentLoaded', function() {
         if (certContainer.children.length === 0) {
             certContainer.style.display = 'none';
         }
+    }
+    
+    // ===== CHESS.COM INTEGRATION =====
+    // Simple, reliable Chess.com puzzle rating display
+    function initChessRating() {
+        console.log('🚀 Starting Chess.com integration');
+        
+        const element = document.getElementById('chess-nav-text');
+        if (!element) {
+            console.warn('Chess rating element not found');
+            return;
+        }
+        
+        // Try to fetch live data, but don't change display if it fails
+        async function updateChessRating() {
+            try {
+                const response = await fetch('https://api.chess.com/pub/player/yuri_tal/stats');
+                const data = await response.json();
+                
+                if (data.tactics && data.tactics.highest && data.tactics.highest.rating) {
+                    const rating = data.tactics.highest.rating;
+                    element.textContent = `🧩: ${rating.toLocaleString()}`;
+                    element.style.color = '#2ecc71'; // Green for live data
+                    console.log('✅ Live Chess rating updated:', rating);
+                    
+                    // Store for next time
+                    localStorage.setItem('chess-rating', rating.toString());
+                    localStorage.setItem('chess-rating-timestamp', Date.now().toString());
+                }
+            } catch (error) {
+                console.log('Chess.com API failed, keeping current display:', error.message);
+                // Don't change the display - keep showing the default rating
+            }
+        }
+        
+        // Try to update, but if it fails, just keep the default
+        updateChessRating();
+        
+        // Update every 10 minutes
+        setInterval(updateChessRating, 10 * 60 * 1000);
     }
     
     // ===== INITIALIZATION =====
@@ -535,10 +436,14 @@ const utils = {
 // Make utilities available globally for potential use in other scripts or modules
 window.ResumeUtils = utils;
 
+// animateTimeline global stub is defined at the top of the file
+
 // Also make main functions available for external control if needed
 window.YuriResume = {
     utils: utils,
-    reinitializeTimeline: animateTimeline,
+    animateTimeline: function() {
+        console.log('YuriResume.animateTimeline called - handled by internal DOMContentLoaded function');
+    },
     // Add other functions here as needed for external access
 };
 
