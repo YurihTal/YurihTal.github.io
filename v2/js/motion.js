@@ -108,7 +108,7 @@
     timeline.style.setProperty('--progress', progress.toFixed(4));
     var y = r.top + progress * r.height;
     ops.forEach(function (op) {
-      var dot = op.getBoundingClientRect().top + 26;
+      var dot = op.getBoundingClientRect().top + 28;
       op.classList.toggle('is-lit', dot <= y + 1);
     });
   }
