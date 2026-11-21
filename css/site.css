@@ -699,6 +699,12 @@
   }
 }
 
+/* ---------- Full-width project card (Software section) ---------- */
+@layer sections {
+  .system--site { margin-top: var(--s-5); }
+  .system--site .system__copy { max-width: 820px; }
+}
+
 /* ---------- ECHO case study (echo/index.html) ---------- */
 @layer sections {
   .echo-hero .schematic { align-self: center; }
