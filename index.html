@@ -434,15 +434,18 @@
 
           <article class="system" data-reveal>
             <div class="system__copy">
-              <span class="part__tool mono">Web app · 30-species database</span>
+              <span class="part__tool mono">Web app · 60 fish · 20 plants</span>
               <h3>AquaVerse</h3>
               <p class="system__pitch">A professional aquarium planner with a rules-based species compatibility engine.</p>
               <ul class="system__points">
-                <li>Tank planner with bioload calculations and a live water-parameter band visualiser (temperature, pH, hardness).</li>
-                <li>Re-architected a ~3,000-line single-file prototype into a 21-file Vite + React Router app.</li>
-                <li>Shared design-token system with light and dark themes.</li>
+                <li>Tank planner with filtration-aware bioload, pairwise compatibility, and a live water-parameter band visualiser (temperature, pH, hardness) for fish and plants together.</li>
+                <li>Re-architected a ~3,000-line single-file prototype into a modular Vite + React app: pure calculation engine, single Zustand store, one folder per component.</li>
+                <li>CSS Modules on a shared design-token system with light and dark themes; real species photos with Wikimedia attribution.</li>
               </ul>
-              <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">React Router</li><li class="chip">Tailwind</li><li class="chip">Design tokens</li></ul>
+              <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Zustand</li><li class="chip">CSS Modules</li><li class="chip">Design tokens</li></ul>
+              <p><a class="btn btn--primary" href="https://yurihtal.github.io/aquaverse-site/" target="_blank" rel="noopener">Try the planner<span class="sr-only"> (opens in a new tab)</span>
+                <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a></p>
             </div>
           </article>
         </div>
