@@ -611,3 +611,94 @@
   @media (max-width: 479px) { .contact__actions .btn { width: 100%; } .btn--lg { font-size: 1rem; padding: 0 var(--s-4); } }
 }
 @layer sections { @media (min-width: 1024px) { .tools > .tool:last-child { grid-column: span 2; } } }
+
+/* ---------- Motion (piece 3) — active only under html.js-motion ---------- */
+@layer motion {
+  /* Hero intro */
+  .js-motion .hero [data-intro] {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity var(--dur-lg) var(--ease-out), transform var(--dur-lg) var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 110ms + 250ms);
+  }
+  .js-motion .hero__title .line { overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
+  .js-motion .hero__title [data-intro] { display: inline-block; transform: translateY(105%); opacity: 1; }
+  .js-motion.intro-run .hero [data-intro] { opacity: 1; transform: none; }
+
+  /* Toolpath draws like a cutter on a constant feed */
+  .js-motion .hero .toolpath { stroke-dasharray: var(--len, 6000); stroke-dashoffset: var(--len, 6000); }
+  .js-motion .hero .toolpath.rapid { transition: stroke-dashoffset 500ms linear 100ms; }
+  .js-motion .hero .toolpath.cut { transition: stroke-dashoffset 2000ms var(--ease-cut) 450ms; }
+  .js-motion.intro-run .hero .toolpath { stroke-dashoffset: 0; }
+  .js-motion .hero .drills, .js-motion .hero .datum { opacity: 0; transition: opacity 600ms ease 1.6s; }
+  .js-motion.intro-run .hero .drills { opacity: 0.8; }
+  .js-motion.intro-run .hero .datum { opacity: 0.7; }
+
+  /* Terminal "types" line by line */
+  .js-motion .terminal__body .ln { opacity: 0; transform: translateX(-6px); clip-path: inset(0 100% 0 0);
+    transition: opacity 120ms linear, transform 300ms var(--ease-out), clip-path 260ms steps(18, end);
+    transition-delay: calc(var(--i, 0) * 120ms + 600ms); }
+  .js-motion.intro-run .terminal__body .ln { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+
+  /* Skip: jump everything to its final state */
+  .js-motion.intro-done .hero [data-intro],
+  .js-motion.intro-done .hero .toolpath,
+  .js-motion.intro-done .hero .drills,
+  .js-motion.intro-done .hero .datum,
+  .js-motion.intro-done .terminal__body .ln { transition: none !important; }
+  .js-motion.intro-done .hero [data-intro] { opacity: 1; transform: none; }
+  .js-motion.intro-done .hero .toolpath { stroke-dashoffset: 0; }
+  .js-motion.intro-done .terminal__body .ln { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+  .js-motion.intro-done .hero .drills { opacity: 0.8; }
+  .js-motion.intro-done .hero .datum { opacity: 0.7; }
+
+  .hero__toolpath { will-change: transform; }
+
+  /* Status dot pulse */
+  .js-motion .dot { animation: pulse 2.4s ease-out infinite; }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
+    70%, 100% { box-shadow: 0 0 0 8px transparent; }
+  }
+
+  /* Scroll reveals */
+  .js-motion [data-reveal] {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity var(--dur-lg) var(--ease-out), transform var(--dur-lg) var(--ease-out);
+    transition-delay: calc(var(--stagger, 0) * 70ms);
+  }
+  .js-motion [data-reveal].is-in { opacity: 1; transform: none; }
+
+  /* Section headings: code-label rule extends */
+  .js-motion .section-head .code-label::before { transform-origin: left; transform: scaleX(0); transition: transform 700ms var(--ease-cut) 200ms; }
+  .js-motion .section-head.is-in .code-label::before { transform: scaleX(1); }
+
+  /* Project images: cut in from below, settle from slight zoom */
+  .js-motion .part[data-reveal] .part__media { clip-path: inset(100% 0 0 0); transition: clip-path 1000ms var(--ease-cut) 120ms; }
+  .js-motion .part[data-reveal].is-in .part__media { clip-path: inset(0 0 0 0); }
+  .js-motion .part[data-reveal] .part__media img { transform: scale(1.08); }
+  .js-motion .part[data-reveal].is-in .part__media img { transform: scale(1); }
+  .js-motion .part[data-reveal].is-in:hover .part__media img { transform: scale(1.04); }
+
+  /* Architecture schematic: nodes power on in sequence */
+  .js-motion .system[data-reveal] .node, .js-motion .system[data-reveal] .wire {
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 500ms ease, transform 500ms var(--ease-out);
+  }
+  .js-motion .system[data-reveal].is-in .node, .js-motion .system[data-reveal].is-in .wire { opacity: 1; transform: none; }
+  .js-motion .schem > :nth-child(1) { transition-delay: 300ms !important; }
+  .js-motion .schem > :nth-child(2) { transition-delay: 420ms !important; }
+  .js-motion .schem > :nth-child(3) { transition-delay: 540ms !important; }
+  .js-motion .schem > :nth-child(4) .node { transition-delay: 660ms !important; }
+  .js-motion .schem > :nth-child(5) .node { transition-delay: 780ms !important; }
+  .js-motion .schem > :nth-child(6) { transition-delay: 900ms !important; }
+
+  /* Timeline progress starts empty only when motion is on */
+  .js-motion .timeline { --progress: 0; }
+  .js-motion .op:not(.is-lit)::before { background: var(--bg); border-color: var(--line-strong); }
+  .js-motion .op.is-lit::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+  .js-motion .op--key:not(.is-lit)::before { background: var(--bg); border-color: var(--line-strong); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+  }
+}

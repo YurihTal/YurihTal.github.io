@@ -18,7 +18,13 @@
       if (t !== 'light' && t !== 'dark') {
         t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       }
-      document.documentElement.setAttribute('data-theme', t);
+      var d = document.documentElement;
+      d.setAttribute('data-theme', t);
+      // Motion opt-in: only when allowed. If motion.js never reports ready, show everything.
+      if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        d.classList.add('js-motion');
+        setTimeout(function () { if (!d.classList.contains('motion-ready')) d.classList.remove('js-motion'); }, 2500);
+      }
     })();
   </script>
 
@@ -28,6 +34,7 @@
   <link rel="stylesheet" href="css/site.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23FF6A1A'%3EYH%3C/text%3E%3C/svg%3E" />
   <script src="js/main.js" defer></script>
+  <script src="js/motion.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -95,14 +102,14 @@
 
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="hero__status"><span class="dot" aria-hidden="true"></span>Toronto, ON · Open to new roles</p>
+          <p class="hero__status" data-intro style="--i:0"><span class="dot" aria-hidden="true"></span>Toronto, ON · Open to new roles</p>
           <h1 class="hero__title" id="hero-title">
-            <span class="line">Yuri</span>
-            <span class="line">Hlebanja</span>
+            <span class="line"><span data-intro style="--i:1">Yuri</span></span>
+            <span class="line"><span data-intro style="--i:2">Hlebanja</span></span>
           </h1>
-          <p class="hero__role"><span>5-Axis CNC Programmer</span><span>CAD/CAM &amp; Mechanical Design</span><span>AI-Driven Manufacturing</span></p>
-          <p class="hero__tagline"><strong>From G-code to LLMs.</strong> I program and run 5-axis CNC machines to ±0.05&nbsp;mm — and build the AI software that makes manufacturing smarter.</p>
-          <div class="hero__ctas">
+          <p class="hero__role" data-intro style="--i:3"><span>5-Axis CNC Programmer</span><span>CAD/CAM &amp; Mechanical Design</span><span>AI-Driven Manufacturing</span></p>
+          <p class="hero__tagline" data-intro style="--i:4"><strong>From G-code to LLMs.</strong> I program and run 5-axis CNC machines to ±0.05&nbsp;mm — and build the AI software that makes manufacturing smarter.</p>
+          <div class="hero__ctas" data-intro style="--i:5">
             <a class="btn btn--primary" href="#engineering">View work
               <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
@@ -110,7 +117,7 @@
           </div>
         </div>
 
-        <figure class="terminal" aria-label="Decorative CNC program listing">
+        <figure class="terminal" data-intro style="--i:2" aria-label="Decorative CNC program listing">
           <div class="terminal__bar" aria-hidden="true">
             <span class="lamp on"><i></i>SPINDLE</span>
             <span class="lamp on"><i></i>COOLANT</span>
@@ -122,10 +129,10 @@
       </div>
 
       <div class="container" style="position:relative;z-index:1">
-        <ul class="stats" role="list" aria-label="Key figures">
-          <li class="stat"><span class="stat__value num">±0.05<span class="unit">mm</span></span><span class="stat__label">5-axis tolerance</span></li>
-          <li class="stat"><span class="stat__value num">8+<span class="unit">yrs</span></span><span class="stat__label">Fabrication &amp; mfg</span></li>
-          <li class="stat"><span class="stat__value num">29</span><span class="stat__label">ECHO milestones shipped</span></li>
+        <ul class="stats" role="list" aria-label="Key figures" data-intro style="--i:6">
+          <li class="stat"><span class="stat__value num"><span data-count="0.05" data-prefix="±">±0.05</span><span class="unit">mm</span></span><span class="stat__label">5-axis tolerance</span></li>
+          <li class="stat"><span class="stat__value num"><span data-count="8">8</span>+<span class="unit">yrs</span></span><span class="stat__label">Fabrication &amp; mfg</span></li>
+          <li class="stat"><span class="stat__value num"><span data-count="29">29</span></span><span class="stat__label">ECHO milestones shipped</span></li>
           <li class="stat"><span class="stat__value">Honours</span><span class="stat__label">CNC &amp; Mastercam diploma</span></li>
         </ul>
       </div>
