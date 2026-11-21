@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yuri Hlebanja — CNC Programmer · CAD/CAM · AI-Driven Manufacturing</title>
+  <meta name="description" content="5-axis CNC programmer and CAD/CAM designer in Toronto who builds AI software for manufacturing. Mastercam, SolidWorks, Inventor, GD&amp;T — and Python, TypeScript, Rust." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0B0D10" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F5F2" media="(prefers-color-scheme: light)" />
+  <link rel="canonical" href="https://yurihtal.github.io/" />
+
+  <!-- Theme: set before first paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23FF6A1A'%3EYH%3C/text%3E%3C/svg%3E" />
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="blueprint" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="Yuri Hlebanja — back to top">
+        <span class="brand__mark" aria-hidden="true">YH</span>
+        <span>HLEBANJA</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#engineering">Engineering</a></li>
+          <li><a href="#software">Software</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu" data-menu-toggle>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sheet" id="sheet" hidden>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="#about"><span>N20</span>About</a></li>
+        <li><a href="#experience"><span>N30</span>Experience</a></li>
+        <li><a href="#engineering"><span>N40</span>Engineering</a></li>
+        <li><a href="#software"><span>N50</span>Software</a></li>
+        <li><a href="#skills"><span>N60</span>Skills</a></li>
+        <li><a href="#contact"><span>M30</span>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <svg class="hero__toolpath" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path class="toolpath rapid" d="M 120 118 L 700 118" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="4 6" opacity="0.6"/>
+        <path class="toolpath cut" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"
+          d="M 700 118 L 820 194 Q 820 130 884 130 L 1276 130 Q 1340 130 1340 194 L 1340 706 Q 1340 770 1276 770 L 884 770 Q 820 770 820 706 L 820 234 L 852 258 L 852 218 Q 852 162 908 162 L 1252 162 Q 1308 162 1308 218 L 1308 682 Q 1308 738 1252 738 L 908 738 Q 852 738 852 682 L 852 258 L 884 282 L 884 242 Q 884 194 932 194 L 1228 194 Q 1276 194 1276 242 L 1276 658 Q 1276 706 1228 706 L 932 706 Q 884 706 884 658 L 884 282 L 916 306 L 916 266 Q 916 226 956 226 L 1204 226 Q 1244 226 1244 266 L 1244 634 Q 1244 674 1204 674 L 956 674 Q 916 674 916 634 L 916 306 L 948 330 L 948 290 Q 948 258 980 258 L 1180 258 Q 1212 258 1212 290 L 1212 610 Q 1212 642 1180 642 L 980 642 Q 948 642 948 610 L 948 330 L 980 354 L 980 314 Q 980 290 1004 290 L 1156 290 Q 1180 290 1180 314 L 1180 586 Q 1180 610 1156 610 L 1004 610 Q 980 610 980 586 L 980 354 L 1012 378 L 1012 338 Q 1012 322 1028 322 L 1132 322 Q 1148 322 1148 338 L 1148 562 Q 1148 578 1132 578 L 1028 578 Q 1012 578 1012 562 L 1012 378 L 1044 404"/>
+        <g class="drills" stroke="currentColor" stroke-width="1" fill="none" opacity="0.8">
+          <g transform="translate(160 760)"><circle r="10"/><path d="M-18 0h36M0-18v36"/></g>
+          <g transform="translate(260 760)"><circle r="10"/><path d="M-18 0h36M0-18v36"/></g>
+          <g transform="translate(360 760)"><circle r="10"/><path d="M-18 0h36M0-18v36"/></g>
+        </g>
+        <g class="datum" font-family="monospace" font-size="12" fill="currentColor" opacity="0.7">
+          <path d="M 700 118 m -8 0 h 16 M 700 118 m 0 -8 v 16" stroke="currentColor"/>
+          <text x="712" y="108">G54 X0 Y0</text>
+        </g>
+      </svg>
+
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="hero__status"><span class="dot" aria-hidden="true"></span>Toronto, ON · Open to new roles</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line">Yuri</span>
+            <span class="line">Hlebanja</span>
+          </h1>
+          <p class="hero__role"><span>5-Axis CNC Programmer</span><span>CAD/CAM &amp; Mechanical Design</span><span>AI-Driven Manufacturing</span></p>
+          <p class="hero__tagline"><strong>From G-code to LLMs.</strong> I program and run 5-axis CNC machines to ±0.05&nbsp;mm — and build the AI software that makes manufacturing smarter.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="#engineering">View work
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <figure class="terminal" aria-label="Decorative CNC program listing">
+          <div class="terminal__bar" aria-hidden="true">
+            <span class="lamp on"><i></i>SPINDLE</span>
+            <span class="lamp on"><i></i>COOLANT</span>
+            <span class="lamp hot"><i></i>FEED</span>
+            <span class="file">O1001.NC</span>
+          </div>
+          <pre class="terminal__body" aria-hidden="true" data-terminal><code><span class="ln"><span class="n">N10</span><span class="c">%</span></span><span class="ln"><span class="n">N20</span>O1001 <span class="c">(YH-PORTFOLIO)</span></span><span class="ln"><span class="n">N30</span><span class="g">G90 G54 G17 G21</span> <span class="c">(ABS, WCS, XY, MM)</span></span><span class="ln"><span class="n">N40</span>T01 <span class="m">M06</span> <span class="c">(6MM FLAT END MILL)</span></span><span class="ln"><span class="n">N50</span>S18000 <span class="m">M03</span></span><span class="ln opt"><span class="n">N60</span><span class="g">G43</span> H01 Z25. <span class="m">M08</span></span><span class="ln"><span class="n">N70</span><span class="g">G00</span> X0. Y0.</span><span class="ln opt"><span class="n">N80</span><span class="g">G01</span> Z-2. F600</span><span class="ln"><span class="n">N90</span><span class="g">G01</span> X120. Y40. F2400</span><span class="ln opt"><span class="n">N100</span><span class="c">(TOL ±0.05 — IN SPEC)</span></span><span class="ln"><span class="n">N110</span><span class="c">(LOADING: CAREER.NC)</span><span class="cursor"></span></span></code></pre>
+        </figure>
+      </div>
+
+      <div class="container" style="position:relative;z-index:1">
+        <ul class="stats" role="list" aria-label="Key figures">
+          <li class="stat"><span class="stat__value num">±0.05<span class="unit">mm</span></span><span class="stat__label">5-axis tolerance</span></li>
+          <li class="stat"><span class="stat__value num">8+<span class="unit">yrs</span></span><span class="stat__label">Fabrication &amp; mfg</span></li>
+          <li class="stat"><span class="stat__value num">29</span><span class="stat__label">ECHO milestones shipped</span></li>
+          <li class="stat"><span class="stat__value">Honours</span><span class="stat__label">CNC &amp; Mastercam diploma</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sections N20–M30 are added in the next build step -->
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="mono">© <span data-year>2026</span> Yuri Hlebanja · Toronto, ON</span>
+      <span class="mono">M30 · END OF PROGRAM</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>
