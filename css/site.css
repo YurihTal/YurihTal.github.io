@@ -698,3 +698,28 @@
     .cursor { animation: none; }
   }
 }
+
+/* ---------- ECHO case study (echo/index.html) ---------- */
+@layer sections {
+  .echo-hero .schematic { align-self: center; }
+  .echo-rows dd { font-family: var(--font-mono); }
+  .rows--compact.echo-rows { max-width: 860px; }
+  .rows--compact.echo-rows dd { color: var(--signal); font-size: 0.95rem; white-space: nowrap; }
+  .echo-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--bg-raised); }
+  .echo-table { width: 100%; border-collapse: collapse; font-size: 0.975rem; }
+  .echo-table th, .echo-table td { text-align: left; vertical-align: top; padding: var(--s-4) var(--s-5); border-top: 1px solid var(--line); }
+  .echo-table thead th { border-top: 0; font-family: var(--font-mono); font-size: var(--fs-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+  .echo-table tbody th { font-weight: 600; width: 34%; }
+  .echo-table td { color: var(--text-muted); }
+  .echo-checks { margin-top: var(--s-6); }
+  .echo-checks dd { font-size: 1rem; }
+  @media (max-width: 639px) {
+    .echo-table, .echo-table tbody, .echo-table tr, .echo-table th, .echo-table td { display: block; width: auto; }
+    .echo-table thead { display: none; }
+    .echo-table tbody th { width: auto; padding-bottom: 0; }
+    .echo-table tbody td { border-top: 0; padding-top: var(--s-2); }
+    .echo-table tbody tr + tr th { border-top: 1px solid var(--line); }
+    .echo-table tbody tr:first-child th { border-top: 0; }
+    .rows--compact.echo-rows > div { grid-template-columns: 1fr; }
+  }
+}

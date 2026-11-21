@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ECHO — Local-first AI desktop assistant · Yuri Hlebanja</title>
+  <meta name="description" content="ECHO is a local-first, voice-capable AI desktop assistant for Linux: tasks, notes, documents, email, calendar and CRM, with approvals, prompt-injection defences and an audit trail. Case study by Yuri Hlebanja." />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0B0D10" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F5F2" media="(prefers-color-scheme: light)" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-w1mHZ2tjbjsH6ZvOOr/I/OhoEon60TkhzrRJtUlyu6U='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'self'; form-action 'none'; object-src 'none'" />
+  <link rel="canonical" href="https://yurihtal.github.io/echo/" />
+  <meta property="og:title" content="ECHO — Local-first AI desktop assistant" />
+  <meta property="og:description" content="Voice, tasks, notes, email, calendar and CRM on your own computer, with approvals and an audit trail for every action." />
+  <meta property="og:url" content="https://yurihtal.github.io/echo/" />
+  <meta property="og:type" content="article" />
+
+  <!-- Theme: set before first paint to avoid a flash of the wrong theme -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      var d = document.documentElement;
+      d.setAttribute('data-theme', t);
+      if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        d.classList.add('js-motion');
+        setTimeout(function () { if (!d.classList.contains('motion-ready')) d.classList.remove('js-motion'); }, 2500);
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="../css/site.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23FF6A1A'%3EYH%3C/text%3E%3C/svg%3E" />
+  <script src="../js/main.js" defer></script>
+  <script src="../js/motion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="blueprint" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="brand" href="../" aria-label="Yuri Hlebanja — portfolio home">
+        <span class="brand__mark" aria-hidden="true">YH</span>
+        <span>HLEBANJA</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#performance">Performance</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="../#software">← Portfolio</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu" data-menu-toggle>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sheet" id="sheet" hidden>
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="#features"><span>N10</span>Features</a></li>
+        <li><a href="#architecture"><span>N20</span>Architecture</a></li>
+        <li><a href="#security"><span>N30</span>Security</a></li>
+        <li><a href="#performance"><span>N40</span>Performance</a></li>
+        <li><a href="#process"><span>N50</span>Process</a></li>
+        <li><a href="../#software"><span>M30</span>Back to portfolio</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <!-- ============ HERO ============ -->
+    <section class="hero echo-hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="hero__status" data-intro style="--i:0"><span class="dot" aria-hidden="true"></span>Case study · v2.8.0 · Linux desktop</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span data-intro style="--i:1">ECHO</span></span>
+          </h1>
+          <p class="hero__role" data-intro style="--i:2"><span>Local-first</span><span>Voice-capable</span><span>Safe by design</span></p>
+          <p class="hero__tagline" data-intro style="--i:3"><strong>An AI assistant that lives on your computer.</strong> Tasks, notes, documents, email, calendar and contacts in one desktop app, with voice you can trust: every action it takes is shown, approved and undoable.</p>
+          <div class="hero__ctas" data-intro style="--i:4">
+            <a class="btn btn--primary" href="#features">See what it does
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn" href="https://calendly.com/yurihlebanja/quickchat" target="_blank" rel="noopener">Book a live demo<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+
+        <figure class="schematic" data-intro style="--i:3" aria-label="ECHO architecture diagram">
+          <figcaption class="schematic__cap mono">ECHO / ARCHITECTURE</figcaption>
+          <div class="schem">
+            <div class="node node--ui"><b>Desktop window</b><span>Tauri 2 · React · TypeScript</span></div>
+            <div class="wire" aria-hidden="true"><span>REST + WebSocket · token · 127.0.0.1 only</span></div>
+            <div class="node node--core"><b>Python core</b><span>FastAPI · SQLite · runs on your PC</span></div>
+            <div class="schem__row">
+              <div class="node"><b>Model router</b><span>Claude → Groq → local Ollama</span></div>
+              <div class="node"><b>Speech, on device</b><span>wake word · Whisper · Kokoro</span></div>
+            </div>
+            <div class="schem__row">
+              <div class="node"><b>Connections (MCP)</b><span>Notion · Calendar · Gmail · Drive</span></div>
+              <div class="node"><b>Guardrails</b><span>Read / Confirm / Execute · undo</span></div>
+            </div>
+            <div class="node node--edge"><b>Telegram</b><span>one paired phone · optional approvals</span></div>
+          </div>
+        </figure>
+      </div>
+
+      <div class="container" style="position:relative;z-index:1">
+        <ul class="stats" role="list" aria-label="Key figures" data-intro style="--i:5">
+          <li class="stat"><span class="stat__value num"><span data-count="28">28</span></span><span class="stat__label">Milestones, each gated</span></li>
+          <li class="stat"><span class="stat__value num"><span data-count="35">35</span></span><span class="stat__label">Architecture decisions</span></li>
+          <li class="stat"><span class="stat__value num"><span data-count="1900">1900</span>+</span><span class="stat__label">Automated tests</span></li>
+          <li class="stat"><span class="stat__value">.deb · AppImage</span><span class="stat__label">Packaged for Ubuntu</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ N10 FEATURES ============ -->
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N10 Features</span>
+          <h2 id="features-title">One window for the day's work.</h2>
+          <p>Type it, say it, or send it from your phone. ECHO turns it into tasks, answers from your own notes and files, and acts in your other apps only when you allow it.</p>
+        </header>
+        <div class="tools">
+          <section class="tool" data-reveal aria-labelledby="f1"><h3 id="f1"><span class="mono">T01</span>Capture &amp; voice</h3>
+            <ul class="chips" role="list"><li class="chip">"Hey Jarvis" wake word</li><li class="chip">Push-to-talk</li><li class="chip">Quick capture Ctrl+K</li><li class="chip">Dictation in any text box</li><li class="chip">Brain dump → tasks</li><li class="chip">Offline inbox</li></ul></section>
+          <section class="tool" data-reveal aria-labelledby="f2"><h3 id="f2"><span class="mono">T02</span>Tasks &amp; habits</h3>
+            <ul class="chips" role="list"><li class="chip">Projects &amp; workspaces</li><li class="chip">Board view</li><li class="chip">Repeating tasks</li><li class="chip">Habit streaks</li><li class="chip">Reminders</li><li class="chip">Undo for every change</li></ul></section>
+          <section class="tool" data-reveal aria-labelledby="f3"><h3 id="f3"><span class="mono">T03</span>Knowledge</h3>
+            <ul class="chips" role="list"><li class="chip">Notes in Markdown</li><li class="chip">PDF, Word, Office search</li><li class="chip">Answers cite sources</li><li class="chip">Search everything Ctrl+P</li><li class="chip">File library per project</li></ul></section>
+          <section class="tool tool--wide" data-reveal aria-labelledby="f4"><h3 id="f4"><span class="mono">T04</span>Connections</h3>
+            <ul class="chips" role="list"><li class="chip">Gmail: read, search, reply with review</li><li class="chip">Google Calendar</li><li class="chip">Google Drive</li><li class="chip">Notion</li><li class="chip">Any MCP server you add</li><li class="chip">Telegram chat &amp; voice notes</li><li class="chip">Sending always asks first</li></ul></section>
+          <section class="tool" data-reveal aria-labelledby="f5"><h3 id="f5"><span class="mono">T05</span>People &amp; CRM</h3>
+            <ul class="chips" role="list"><li class="chip">People &amp; companies</li><li class="chip">Timelines</li><li class="chip">Follow-ups</li><li class="chip">Deal pipeline</li><li class="chip">Contacts import</li></ul></section>
+          <section class="tool" data-reveal aria-labelledby="f6"><h3 id="f6"><span class="mono">T06</span>Planning</h3>
+            <ul class="chips" role="list"><li class="chip">Daily briefing</li><li class="chip">Read aloud</li><li class="chip">Dashboard</li><li class="chip">Weekly review</li></ul></section>
+          <section class="tool" data-reveal aria-labelledby="f7"><h3 id="f7"><span class="mono">T07</span>Documents &amp; tables</h3>
+            <ul class="chips" role="list"><li class="chip">New Word, Excel, PowerPoint, PDF</li><li class="chip">Grid tables</li><li class="chip">Excel / CSV export</li></ul></section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ N20 ARCHITECTURE ============ -->
+    <section class="section" id="architecture" aria-labelledby="arch-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N20 Architecture</span>
+          <h2 id="arch-title">Your data stays on your machine.</h2>
+          <p>A native shell, a local core and a local database. The cloud is used only for the language model, and only when it is needed.</p>
+        </header>
+        <article class="system system--flagship" data-reveal>
+          <div class="system__copy">
+            <ul class="system__points">
+              <li><strong>Tauri 2 shell (Rust)</strong> starts a frozen Python core with a fresh random 32-byte token on every launch. The window can only show the app itself; links never navigate it to the web.</li>
+              <li><strong>FastAPI core on 127.0.0.1</strong> with SQLite and full-text search. Data lives in a private folder (mode 0700); migrations back up the database first.</li>
+              <li><strong>Model router:</strong> Claude when online, a free Groq model when Claude is unavailable, and a local Ollama model with no internet. A monthly budget cap switches the cloud off.</li>
+              <li><strong>Speech on device:</strong> wake word, faster-whisper speech-to-text and Kokoro text-to-speech. No audio is stored; a voice turn opens no network connection.</li>
+              <li><strong>Tools over MCP:</strong> every integration's tools start at <em>Confirm</em> and stay hidden until you set their policy.</li>
+            </ul>
+          </div>
+          <dl class="rows echo-rows">
+            <div><dt>Interface</dt><dd>Tauri 2 · React · TypeScript · TanStack Query · Zustand</dd></div>
+            <div><dt>Core</dt><dd>Python 3.12 · FastAPI · SQLAlchemy · Alembic · SQLite FTS5</dd></div>
+            <div><dt>AI</dt><dd>Claude · Groq · Ollama · fastembed (RAG) · MCP</dd></div>
+            <div><dt>Speech</dt><dd>openWakeWord · faster-whisper · Kokoro · espeak-ng fallback</dd></div>
+            <div><dt>Secrets</dt><dd>System keyring only · redacted from every log and event</dd></div>
+            <div><dt>Packaging</dt><dd>PyInstaller onedir + Tauri bundle · .deb (primary) · AppImage</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ N30 SECURITY ============ -->
+    <section class="section" id="security" aria-labelledby="sec-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N30 Security</span>
+          <h2 id="sec-title">An assistant that can't be talked into things.</h2>
+          <p>Built from a written threat model. Every threat maps to a control, the code that implements it and the tests that prove it, and an independent review passed it in three rounds.</p>
+        </header>
+        <div class="echo-table-wrap" data-reveal>
+          <table class="echo-table">
+            <thead><tr><th scope="col">Threat</th><th scope="col">Control</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Prompt injection from email, notes, calendar or web text</th><td>External content is wrapped as untrusted data and taints the turn, so any write then needs your approval. Permission tiers are enforced in code; the model cannot see or change them.</td></tr>
+              <tr><th scope="row">Other web pages calling the local API</th><td>Token on every request, strict Host and CORS checks, loopback-only binding.</td></tr>
+              <tr><th scope="row">Leaked keys</th><td>Keys live only in the system keyring; a redaction filter covers logs, errors, audit rows and events; key fields are write-only.</td></tr>
+              <tr><th scope="row">A careless or malicious plugin</th><td>Explicit trust warning, minimal environment, only its own secrets, tools start at Confirm, any change to it resets its policy.</td></tr>
+              <tr><th scope="row">An always-on microphone</th><td>Wake word runs locally, no audio written, mute closes the stream, the microphone state is always shown in words.</td></tr>
+              <tr><th scope="row">Runaway cost or loops</th><td>Capped tool rounds per turn, a timeout on every model call, a monthly budget.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <dl class="system__stats echo-checks" data-reveal>
+          <div><dt>Static analysis</dt><dd class="mono">bandit: 0 med/high</dd></div>
+          <div><dt>Python deps</dt><dd class="mono">pip-audit: clean</dd></div>
+          <div><dt>Injection tests</dt><dd class="mono">mutation-checked</dd></div>
+          <div><dt>Audit trail</dt><dd class="mono">every tool call</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ N40 PERFORMANCE ============ -->
+    <section class="section" id="performance" aria-labelledby="perf-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N40 Performance</span>
+          <h2 id="perf-title">Measured, not estimated.</h2>
+          <p>Each requirement had a budget; each was measured on a 15 W laptop CPU.</p>
+        </header>
+        <dl class="rows rows--compact echo-rows" data-reveal>
+          <div><dt>Search 5,000 people (budget 300 ms)</dt><dd>36 ms</dd></div>
+          <div><dt>Timeline of 500 items (budget 200 ms)</dt><dd>4 ms</dd></div>
+          <div><dt>Import 100 files of 100 KB (budget 10 s)</dt><dd>1.38 s</dd></div>
+          <div><dt>Rescan 5,000 unchanged files (budget 3 s)</dt><dd>0.41 s</dd></div>
+          <div><dt>Sort or search a 5,000-row table</dt><dd>39 ms</dd></div>
+          <div><dt>Local-model tool request, after prompt-cache redesign</dt><dd>7–20 s (was 30–60 s)</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ N50 PROCESS ============ -->
+    <section class="section" id="process" aria-labelledby="proc-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N50 Process</span>
+          <h2 id="proc-title">Built like a production system.</h2>
+          <p>Specification first, then small tasks in order, each one closed by green checks and an independent review at every milestone gate.</p>
+        </header>
+        <div class="tools">
+          <section class="tool" data-reveal aria-labelledby="p1"><h3 id="p1"><span class="mono">01</span>Spec pack</h3><p class="muted">PRD, SRS with a threat model, architecture, and an API/database contract that changes only through a written decision.</p></section>
+          <section class="tool" data-reveal aria-labelledby="p2"><h3 id="p2"><span class="mono">02</span>Decisions on record</h3><p class="muted">35 ADRs, from packaging to how the local model reuses its prompt, each with what was rejected and why.</p></section>
+          <section class="tool" data-reveal aria-labelledby="p3"><h3 id="p3"><span class="mono">03</span>Gated milestones</h3><p class="muted">28 milestones. None passes without a full quality gate (types, lint, unit, API and end-to-end tests) and a reviewer's PASS.</p></section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEMO ============ -->
+    <section class="section contact" id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <div class="contact__panel" data-reveal>
+          <span class="code-label">M30 Demo</span>
+          <h2 id="demo-title">See it running.</h2>
+          <p class="contact__sub">Screenshots and a recorded demo are on the way. ECHO runs on Ubuntu 24.04+ as a .deb or AppImage; the source is private for now. Happy to walk you through it live.</p>
+          <div class="contact__actions">
+            <a class="btn btn--primary" href="https://calendly.com/yurihlebanja/quickchat" target="_blank" rel="noopener">Book a live demo<span class="sr-only"> (opens in a new tab)</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn" href="../#software">Back to portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="mono">© <span data-year>2026</span> Yuri Hlebanja · Toronto, ON</span>
+      <span class="mono">M30 · END OF PROGRAM</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>

@@ -13,6 +13,7 @@ js/main.js      theme toggle, nav, mobile menu, scroll-spy, copy email
 js/motion.js    hero intro, scroll reveals, timeline progress (progressive enhancement)
 img/            project images (WebP + JPEG fallback)
 v2/             redirect from the old preview URL to /
+echo/           ECHO case-study page (own CSP; styles in site.css "ECHO case study" block)
 ```
 
 ## Design notes
