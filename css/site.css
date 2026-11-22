@@ -473,9 +473,14 @@
     aspect-ratio: 16 / 10; background: #E9EBE6; overflow: hidden; border-bottom: 1px solid var(--line);
     display: grid; place-items: center;
   }
-  .part__media picture, .part__media img { width: 100%; height: 100%; }
-  .part__media img { object-fit: contain; transition: transform var(--dur-lg) var(--ease-out); }
-  .part:hover .part__media img { transform: scale(1.04); }
+  /* The picture fills the box exactly, so the whole image shows (contain) instead of overflowing and being clipped */
+  .part__media { position: relative; }
+  .part__media picture { position: absolute; inset: 0; display: block; }
+  .part__media img { display: block; width: 100%; height: 100%; object-fit: contain; transition: transform var(--dur-lg) var(--ease-out); }
+  .part--wide:hover .part__media img { transform: scale(1.04); }
+  /* Fill around fitted images matches each image's own background */
+  .part__media--dark { background: #141414; }
+  .part__media--lathe { background: linear-gradient(#a8b0bb, #eeeff1); }
   .part__body { padding: var(--s-6) var(--s-6) var(--s-6); display: grid; gap: var(--s-4); align-content: start; }
   .part__body h3 { font-size: var(--fs-h3); line-height: 1.2; }
   .part__body p { color: var(--text-muted); font-size: 0.975rem; }
@@ -673,7 +678,7 @@
   .js-motion .part[data-reveal].is-in .part__media { clip-path: inset(0 0 0 0); }
   .js-motion .part[data-reveal] .part__media img { transform: scale(1.08); }
   .js-motion .part[data-reveal].is-in .part__media img { transform: scale(1); }
-  .js-motion .part[data-reveal].is-in:hover .part__media img { transform: scale(1.04); }
+  .js-motion .part--wide[data-reveal].is-in:hover .part__media img { transform: scale(1.04); }
 
   /* Architecture schematic: nodes power on in sequence */
   .js-motion .system[data-reveal] .node, .js-motion .system[data-reveal] .wire {
