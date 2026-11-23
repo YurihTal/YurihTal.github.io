@@ -470,6 +470,32 @@
             </a></p>
           </div>
         </article>
+
+        <article class="system system--flagship system--site" data-reveal>
+          <div class="system__copy">
+            <span class="part__tool mono">Desktop app · v0.1.1 · Linux</span>
+            <h3>Life Planner</h3>
+            <p class="system__pitch">A local-first, keyboard-driven planner that connects long-term goals to what actually happens each day.</p>
+            <ul class="system__points">
+              <li><strong>Goals to time blocks</strong>: 12-week cycles with at most 3 active goals, broken into projects and tasks, then dragged onto a 15-minute day timeline with a capacity bar that keeps 20% slack.</li>
+              <li><strong>Learns real durations</strong>: logs planned vs. actual time and computes a personal estimate multiplier that sizes new blocks.</li>
+              <li><strong>Rituals</strong>: morning plan (up to 3 most important tasks), evening shutdown where every open task gets a decision, and a weekly review with a 3-minute lite version.</li>
+              <li><strong>Humane habits</strong>: if-then plans with a validated cue, minimum version and backup plan; consistency scoring, "never miss twice" nudges, repair tokens and graduation instead of fragile streaks.</li>
+              <li>Sync-ready SQLite schema (time-ordered IDs, per-field change log, hybrid logical clocks), atomic writes, daily backups and full export; pure, unit-tested planning rules behind a swappable platform layer.</li>
+            </ul>
+            <ul class="chips" role="list"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">SQLite</li><li class="chip">esbuild</li><li class="chip">Node test runner</li><li class="chip">.deb · AppImage</li></ul>
+            <p><a class="btn btn--primary" href="https://github.com/YurihTal/life-planner-showcase" target="_blank" rel="noopener">See screenshots &amp; design<span class="sr-only"> (opens in a new tab)</span>
+              <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a></p>
+          </div>
+          <figure class="shot">
+            <picture>
+              <source type="image/webp" srcset="img/life-planner-today-800.webp 800w, img/life-planner-today-1440.webp 1440w" sizes="(min-width: 1024px) 520px, 100vw" />
+              <img src="img/life-planner-today-800.jpg" width="800" height="500" loading="lazy" decoding="async" alt="Life Planner's Today view: three most important tasks, habit check-ins, a running time block and the day timeline." />
+            </picture>
+            <figcaption class="mono">LIFE PLANNER / TODAY VIEW · SAMPLE DATA</figcaption>
+          </figure>
+        </article>
       </div>
     </section>
 

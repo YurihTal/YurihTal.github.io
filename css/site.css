@@ -714,6 +714,10 @@
 @layer sections {
   .system--site { margin-top: var(--s-5); }
   .system--site .system__copy { max-width: 820px; }
+  .system--flagship.system--site .system__copy { max-width: none; }
+  .shot { margin: 0; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--bg-sunken); align-self: start; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot figcaption { font-size: var(--fs-label); letter-spacing: 0.08em; color: var(--text-muted); padding: var(--s-3) var(--s-4); border-top: 1px solid var(--line); }
 }
 
 /* ---------- ECHO case study (echo/index.html) ---------- */
