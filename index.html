@@ -422,28 +422,31 @@
             <div class="system__copy">
               <span class="part__tool mono">Self-hosted · Ryzen 7 7700 + RTX 4060</span>
               <h3>AXIOM</h3>
-              <p class="system__pitch">A locally hosted, autonomous AI operating system that orchestrates agents across multiple SaaS projects.</p>
+              <p class="system__pitch">A locally hosted, autonomous AI operating system: a team of seven specialist agents that plans, builds and reviews software across multiple projects.</p>
               <ul class="system__points">
-                <li><strong>MIRROR Council</strong>: cross-model code review through Claude, a local Ollama model and GPT-4o-mini, using disagreement between model families to catch bugs before deployment.</li>
-                <li>Defined verdict states with a snapshot/rollback system.</li>
-                <li>Multi-project Prisma data model, NextAuth and an OpenClaw agent gateway with Telegram control.</li>
+                <li>Seven role-based agents (architect, full-stack engineer, design, DevOps, marketing, business analyst and a self-improvement auditor) turn goals into tasks through a PostgreSQL-backed job queue and background worker.</li>
+                <li><strong>MIRROR Council</strong>: cross-model code review through Claude, a local Ollama model and GPT-4o-mini, using disagreement between model families to catch bugs. Verdicts (approved, revision required, conflict, escalate to human) drive an automatic revision loop, plus scheduled nightly audits.</li>
+                <li>Mission Control dashboard: real-time goal pipeline board, agent-to-agent thread viewer, per-project agent chat and an approve-before-merge workflow.</li>
+                <li>Model router across local Ollama, Claude and OpenAI; credential login, route-level authorization and environment-only secrets; OpenClaw gateway for Telegram control.</li>
               </ul>
-              <ul class="chips" role="list"><li class="chip">Next.js</li><li class="chip">Prisma</li><li class="chip">NextAuth</li><li class="chip">Ollama</li><li class="chip">Claude</li><li class="chip">OpenAI</li></ul>
+              <ul class="chips" role="list"><li class="chip">Next.js 16</li><li class="chip">Prisma</li><li class="chip">PostgreSQL</li><li class="chip">pg-boss</li><li class="chip">NextAuth</li><li class="chip">Ollama</li><li class="chip">Claude</li><li class="chip">OpenAI</li></ul>
             </div>
           </article>
 
           <article class="system" data-reveal>
             <div class="system__copy">
-              <span class="part__tool mono">Web app · 60 fish · 20 plants</span>
+              <span class="part__tool mono">Web app · 116 species · 20 plants</span>
               <h3>AquaVerse</h3>
-              <p class="system__pitch">A professional aquarium planner with a rules-based species compatibility engine.</p>
+              <p class="system__pitch">An aquarium planning and care app: design a tank, then run it through cycling and day-to-day maintenance.</p>
               <ul class="system__points">
-                <li>Tank planner with filtration-aware bioload, pairwise compatibility, and a live water-parameter band visualiser (temperature, pH, hardness) for fish and plants together.</li>
-                <li>Re-architected a ~3,000-line single-file prototype into a modular Vite + React app: pure calculation engine, single Zustand store, one folder per component.</li>
-                <li>CSS Modules on a shared design-token system with light and dark themes; real species photos with Wikimedia attribution.</li>
+                <li><strong>Planner</strong>: rules-based compatibility engine that explains each conflict, filtration-aware bioload, temperature / pH / hardness overlap for fish and plants, substrate and heater checks, and a recommended stocking order.</li>
+                <li><strong>Cycle Assistant</strong>: tracks fishless and fish-in nitrogen cycles from test readings, grades ammonia toxicity by pH and temperature (un-ionized NH₃), and gives stage-by-stage guidance with a cycle history.</li>
+                <li><strong>Water Log &amp; Budget</strong>: water-test trends with alerts, water-change and feeding schedules, a maintenance log, and spending by category across tanks.</li>
+                <li><strong>Supplies</strong>: equipment sized to the tank and per-species food lists with retailer links; shareable read-only tank cards.</li>
+                <li>Modular Vite + React architecture: pure calculation engine, single Zustand store, CSS Modules on shared design tokens with light and dark themes.</li>
               </ul>
-              <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Zustand</li><li class="chip">CSS Modules</li><li class="chip">Design tokens</li></ul>
-              <p><a class="btn btn--primary" href="https://yurihtal.github.io/aquaverse-site/" target="_blank" rel="noopener">Try the planner<span class="sr-only"> (opens in a new tab)</span>
+              <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Zustand</li><li class="chip">CSS Modules</li><li class="chip">Three.js</li><li class="chip">Design tokens</li></ul>
+              <p><a class="btn btn--primary" href="https://yurihtal.github.io/aquaverse-site/" target="_blank" rel="noopener">Try AquaVerse<span class="sr-only"> (opens in a new tab)</span>
                 <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
               </a></p>
             </div>
