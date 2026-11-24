@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="css/site.css?v=20261121-2" />
+  <link rel="stylesheet" href="css/site.css?v=20261124-1" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23FF6A1A'%3EYH%3C/text%3E%3C/svg%3E" />
   <script src="js/main.js?v=20261121-2" defer></script>
   <script src="js/motion.js?v=20261121-2" defer></script>
@@ -398,22 +398,14 @@
               <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a></p>
           </div>
-          <figure class="schematic" aria-label="ECHO architecture diagram">
-            <figcaption class="schematic__cap mono">ECHO / ARCHITECTURE</figcaption>
-            <div class="schem">
-              <div class="node node--ui"><b>Desktop UI</b><span>Tauri 2 · React</span></div>
-              <div class="wire" aria-hidden="true"><span>REST + WS · auth</span></div>
-              <div class="node node--core"><b>Python core</b><span>FastAPI · SQLite</span></div>
-              <div class="schem__row">
-                <div class="node"><b>Model router</b><span>Claude → Groq → Ollama</span></div>
-                <div class="node"><b>Speech</b><span>wake · STT · TTS</span></div>
-              </div>
-              <div class="schem__row">
-                <div class="node"><b>MCP</b><span>Notion · Calendar · Gmail · Drive</span></div>
-                <div class="node"><b>Guardrails</b><span>R/C/E · taint · undo</span></div>
-              </div>
-              <div class="node node--edge"><b>Telegram bot</b><span>remote chat · approvals</span></div>
-            </div>
+          <figure class="shot">
+            <a href="echo/#screens" aria-label="See all ECHO screens">
+              <picture>
+                <source type="image/webp" srcset="img/echo/echo-dashboard-640.webp 640w, img/echo/echo-dashboard.webp 1083w" sizes="(min-width: 1024px) 520px, 100vw" />
+                <img src="img/echo/echo-dashboard-640.jpg" srcset="img/echo/echo-dashboard-640.jpg 640w, img/echo/echo-dashboard.jpg 1083w" sizes="(min-width: 1024px) 520px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="ECHO's dashboard: overdue, due today, due this week and done counts, progress per week, projects, habits and the deal pipeline." />
+              </picture>
+            </a>
+            <figcaption class="mono">ECHO / DASHBOARD · SAMPLE DATA</figcaption>
           </figure>
         </article>
 

@@ -15,6 +15,11 @@
   <meta property="og:description" content="Voice, tasks, notes, email, calendar and CRM on your own computer, with approvals and an audit trail for every action." />
   <meta property="og:url" content="https://yurihtal.github.io/echo/" />
   <meta property="og:type" content="article" />
+  <meta property="og:image" content="https://yurihtal.github.io/img/echo/echo-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="627" />
+  <meta property="og:image:alt" content="ECHO, a local-first AI assistant: the dashboard with task counts, projects, habits and the deal pipeline." />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Theme: set before first paint to avoid a flash of the wrong theme -->
   <script>
@@ -36,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
-  <link rel="stylesheet" href="../css/site.css?v=20261121-2" />
+  <link rel="stylesheet" href="../css/site.css?v=20261124-1" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0D10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='monospace' font-size='13' font-weight='600' fill='%23FF6A1A'%3EYH%3C/text%3E%3C/svg%3E" />
   <script src="../js/main.js?v=20261121-2" defer></script>
   <script src="../js/motion.js?v=20261121-2" defer></script>
@@ -55,6 +60,7 @@
       <nav aria-label="Primary">
         <ul class="nav__links" role="list">
           <li><a href="#features">Features</a></li>
+          <li><a href="#screens">Screens</a></li>
           <li><a href="#architecture">Architecture</a></li>
           <li><a href="#security">Security</a></li>
           <li><a href="#performance">Performance</a></li>
@@ -78,6 +84,7 @@
     <nav aria-label="Mobile">
       <ul>
         <li><a href="#features"><span>N10</span>Features</a></li>
+        <li><a href="#screens"><span>N15</span>Screens</a></li>
         <li><a href="#architecture"><span>N20</span>Architecture</a></li>
         <li><a href="#security"><span>N30</span>Security</a></li>
         <li><a href="#performance"><span>N40</span>Performance</a></li>
@@ -99,7 +106,7 @@
           <p class="hero__role" data-intro style="--i:2"><span>Local-first</span><span>Voice-capable</span><span>Safe by design</span></p>
           <p class="hero__tagline" data-intro style="--i:3"><strong>An AI assistant that lives on your computer.</strong> Tasks, notes, documents, email, calendar and contacts in one desktop app, with voice you can trust: every action it takes is shown, approved and undoable.</p>
           <div class="hero__ctas" data-intro style="--i:4">
-            <a class="btn btn--primary" href="#features">See what it does
+            <a class="btn btn--primary" href="#screens">See the screens
               <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="btn" href="https://calendly.com/yurihlebanja/quickchat" target="_blank" rel="noopener">Book a live demo<span class="sr-only"> (opens in a new tab)</span></a>
@@ -158,6 +165,127 @@
             <ul class="chips" role="list"><li class="chip">Daily briefing</li><li class="chip">Read aloud</li><li class="chip">Dashboard</li><li class="chip">Weekly review</li></ul></section>
           <section class="tool" data-reveal aria-labelledby="f7"><h3 id="f7"><span class="mono">T07</span>Documents &amp; tables</h3>
             <ul class="chips" role="list"><li class="chip">New Word, Excel, PowerPoint, PDF</li><li class="chip">Grid tables</li><li class="chip">Excel / CSV export</li></ul></section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ N15 SCREENS ============ -->
+    <section class="section" id="screens" aria-labelledby="screens-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <span class="code-label">N15 Screens</span>
+          <h2 id="screens-title">What it looks like.</h2>
+          <p>Screens from ECHO 2.8 with sample data for a small machine shop. Select a screen to open it full size.</p>
+        </header>
+        <div class="echo-gallery">
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-today.jpg" aria-label="Open the full-size Today screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-today-640.webp 640w, ../img/echo/echo-today.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-today-640.jpg" srcset="../img/echo/echo-today-640.jpg 640w, ../img/echo/echo-today.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Today view: a daily briefing with overdue, due-today and next-three-days lists, then suggested next tasks." />
+              </picture>
+            </a>
+            <figcaption class="mono">TODAY</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-dashboard.jpg" aria-label="Open the full-size Dashboard screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-dashboard-640.webp 640w, ../img/echo/echo-dashboard.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-dashboard-640.jpg" srcset="../img/echo/echo-dashboard-640.jpg 640w, ../img/echo/echo-dashboard.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Dashboard: overdue, due today, due this week and done counts, progress per week, projects, habits and the deal pipeline." />
+              </picture>
+            </a>
+            <figcaption class="mono">DASHBOARD</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-board.jpg" aria-label="Open the full-size Board screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-board-640.webp 640w, ../img/echo/echo-board.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-board-640.jpg" srcset="../img/echo/echo-board-640.jpg 640w, ../img/echo/echo-board.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Board: tasks in To do, Doing and Done columns with priorities and due dates." />
+              </picture>
+            </a>
+            <figcaption class="mono">BOARD</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-upcoming.jpg" aria-label="Open the full-size Upcoming screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-upcoming-640.webp 640w, ../img/echo/echo-upcoming.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-upcoming-640.jpg" srcset="../img/echo/echo-upcoming-640.jpg 640w, ../img/echo/echo-upcoming.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Upcoming: tasks grouped by day with their project, due time, priority and a repeating maintenance task." />
+              </picture>
+            </a>
+            <figcaption class="mono">UPCOMING</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-pipeline.jpg" aria-label="Open the full-size Pipeline screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-pipeline-640.webp 640w, ../img/echo/echo-pipeline.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-pipeline-640.jpg" srcset="../img/echo/echo-pipeline-640.jpg 640w, ../img/echo/echo-pipeline.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Pipeline: deals by stage with value, contact, company and expected close date." />
+              </picture>
+            </a>
+            <figcaption class="mono">PIPELINE</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-contacts.jpg" aria-label="Open the full-size Contacts screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-contacts-640.webp 640w, ../img/echo/echo-contacts.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-contacts-640.jpg" srcset="../img/echo/echo-contacts-640.jpg 640w, ../img/echo/echo-contacts.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Contacts: people with role, company, email, last contact and follow-up dates, two marked due." />
+              </picture>
+            </a>
+            <figcaption class="mono">CONTACTS</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-contact-detail.jpg" aria-label="Open the full-size Contact Timeline screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-contact-detail-640.webp 640w, ../img/echo/echo-contact-detail.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-contact-detail-640.jpg" srcset="../img/echo/echo-contact-detail-640.jpg 640w, ../img/echo/echo-contact-detail.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="A contact's page: details, follow-up schedule, a form to log a call, and a timeline of deals, calls and meetings." />
+              </picture>
+            </a>
+            <figcaption class="mono">CONTACT TIMELINE</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-notes.jpg" aria-label="Open the full-size Notes screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-notes-640.webp 640w, ../img/echo/echo-notes.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-notes-640.jpg" srcset="../img/echo/echo-notes-640.jpg 640w, ../img/echo/echo-notes.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Notes: a Markdown setup sheet for a machining job, linked to its project." />
+              </picture>
+            </a>
+            <figcaption class="mono">NOTES</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-tables.jpg" aria-label="Open the full-size Tables screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-tables-640.webp 640w, ../img/echo/echo-tables.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-tables-640.jpg" srcset="../img/echo/echo-tables-640.jpg 640w, ../img/echo/echo-tables.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Tables: a raw-material inventory grid with SKU, quantity and location, with Excel and CSV export." />
+              </picture>
+            </a>
+            <figcaption class="mono">TABLES</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-mail.jpg" aria-label="Open the full-size Mail screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-mail-640.webp 640w, ../img/echo/echo-mail.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-mail-640.jpg" srcset="../img/echo/echo-mail-640.jpg 640w, ../img/echo/echo-mail.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Mail: an inbox with an email open, Reply and Create task buttons, and an attachment that can be saved to a project." />
+              </picture>
+            </a>
+            <figcaption class="mono">MAIL</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-activity.jpg" aria-label="Open the full-size Activity screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-activity-640.webp 640w, ../img/echo/echo-activity.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-activity-640.jpg" srcset="../img/echo/echo-activity-640.jpg 640w, ../img/echo/echo-activity.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Activity: an audit trail of every change with actor, provider, permission tier and an Undo button." />
+              </picture>
+            </a>
+            <figcaption class="mono">ACTIVITY</figcaption>
+          </figure>
+          <figure class="shot echo-shot" data-reveal>
+            <a href="../img/echo/echo-settings.jpg" aria-label="Open the full-size Settings screenshot">
+              <picture>
+                <source type="image/webp" srcset="../img/echo/echo-settings-640.webp 640w, ../img/echo/echo-settings.webp 1083w" sizes="(min-width: 900px) 560px, 100vw" />
+                <img src="../img/echo/echo-settings-640.jpg" srcset="../img/echo/echo-settings-640.jpg 640w, ../img/echo/echo-settings.jpg 1083w" sizes="(min-width: 900px) 560px, 100vw" width="1083" height="834" loading="lazy" decoding="async" alt="Settings: monthly usage and budget cap for cloud models, and privacy options including local-only mode." />
+              </picture>
+            </a>
+            <figcaption class="mono">SETTINGS</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -263,7 +391,7 @@
         <div class="contact__panel" data-reveal>
           <span class="code-label">M30 Demo</span>
           <h2 id="demo-title">See it running.</h2>
-          <p class="contact__sub">Screenshots and a recorded demo are on the way. ECHO runs on Ubuntu 24.04+ as a .deb or AppImage; the source is private for now. Happy to walk you through it live.</p>
+          <p class="contact__sub">The screens are above; a recorded demo is on the way. ECHO runs on Ubuntu 24.04+ as a .deb or AppImage; the source is private for now. Happy to walk you through it live.</p>
           <div class="contact__actions">
             <a class="btn btn--primary" href="https://calendly.com/yurihlebanja/quickchat" target="_blank" rel="noopener">Book a live demo<span class="sr-only"> (opens in a new tab)</span>
               <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
