@@ -381,12 +381,14 @@
           <div class="system__copy">
             <span class="part__tool mono">Flagship · v2.8.1</span>
             <h3>ECHO</h3>
-            <p class="system__pitch">A local-first, voice-enabled AI desktop assistant and personal operations hub.</p>
+            <p class="system__pitch">Local-first AI desktop assistant with agentic tool use, on-device voice and retrieval-augmented search.</p>
             <ul class="system__points">
-              <li>Tauri&nbsp;2 + React interface talking to a local Python core over an authenticated REST&nbsp;+&nbsp;WebSocket API; all data in SQLite.</li>
-              <li>On-device speech: "Hey Jarvis" wake word, push-to-talk, faster-whisper speech-to-text and Kokoro text-to-speech.</li>
-              <li>Model router: Claude, falling back to Groq, then a local Ollama model offline, with a monthly budget cap.</li>
-              <li>Security by design: Read / Confirm / Execute permissions, approval cards, taint tracking against prompt injection, full audit trail with one-click undo.</li>
+              <li><strong>LLM orchestration:</strong> model router (Claude → Groq → local Ollama) with automatic fallback and budget control</li>
+              <li><strong>Agentic tool use:</strong> MCP integrations (Gmail, Calendar, Drive, Notion) with tiered permissions, approval gates and one-click undo</li>
+              <li><strong>On-device voice:</strong> wake word, speech-to-text (faster-whisper) and text-to-speech (Kokoro)</li>
+              <li><strong>RAG search:</strong> semantic retrieval over notes and documents with cited sources</li>
+              <li><strong>Prompt-injection defence:</strong> taint tracking keeps untrusted content from triggering actions</li>
+              <li><strong>Privacy-first architecture:</strong> Tauri + React client, Python/FastAPI core and SQLite, all running locally</li>
             </ul>
             <dl class="system__stats">
               <div><dt>Milestones</dt><dd class="mono">29</dd></div>
@@ -415,12 +417,13 @@
             <div class="system__copy">
               <span class="part__tool mono">Self-hosted · Ryzen 7 7700 + RTX 4060</span>
               <h3>AXIOM</h3>
-              <p class="system__pitch">A locally hosted, autonomous AI operating system: a team of seven specialist agents that plans, builds and reviews software across multiple projects.</p>
+              <p class="system__pitch">Self-hosted multi-agent AI platform that plans, builds and reviews software across projects.</p>
               <ul class="system__points">
-                <li>Seven role-based agents (architect, full-stack engineer, design, DevOps, marketing, business analyst and a self-improvement auditor) turn goals into tasks through a PostgreSQL-backed job queue and background worker.</li>
-                <li><strong>MIRROR Council</strong>: cross-model code review through Claude, a local Ollama model and GPT-4o-mini, using disagreement between model families to catch bugs. Verdicts (approved, revision required, conflict, escalate to human) drive an automatic revision loop, plus scheduled nightly audits.</li>
-                <li>Mission Control dashboard: real-time goal pipeline board, agent-to-agent thread viewer, per-project agent chat and an approve-before-merge workflow.</li>
-                <li>Model router across local Ollama, Claude and OpenAI; credential login, route-level authorization and environment-only secrets; OpenClaw gateway for Telegram control.</li>
+                <li><strong>Multi-agent orchestration:</strong> seven role-based agents turn goals into tasks through a PostgreSQL job queue (pg-boss)</li>
+                <li><strong>Cross-model code review:</strong> MIRROR Council: Claude, local Ollama and GPT-4o-mini verdicts drive automated revision loops and nightly audits</li>
+                <li><strong>Model routing:</strong> local Ollama, Claude and OpenAI behind one interface</li>
+                <li><strong>Mission Control:</strong> real-time goal pipeline, agent-thread viewer and approve-before-merge workflow</li>
+                <li><strong>Security &amp; remote ops:</strong> credential auth, route-level authorization, environment-only secrets; Telegram control via an OpenClaw gateway</li>
               </ul>
               <ul class="chips" role="list"><li class="chip">Next.js 16</li><li class="chip">Prisma</li><li class="chip">PostgreSQL</li><li class="chip">pg-boss</li><li class="chip">NextAuth</li><li class="chip">Ollama</li><li class="chip">Claude</li><li class="chip">OpenAI</li></ul>
             </div>
@@ -430,13 +433,13 @@
             <div class="system__copy">
               <span class="part__tool mono">Web app · 116 species · 20 plants</span>
               <h3>AquaVerse</h3>
-              <p class="system__pitch">An aquarium planning and care app: design a tank, then run it through cycling and day-to-day maintenance.</p>
+              <p class="system__pitch">Aquarium planning and care web app built on a rules-based compatibility engine.</p>
               <ul class="system__points">
-                <li><strong>Planner</strong>: rules-based compatibility engine that explains each conflict, filtration-aware bioload, temperature / pH / hardness overlap for fish and plants, substrate and heater checks, and a recommended stocking order.</li>
-                <li><strong>Cycle Assistant</strong>: tracks fishless and fish-in nitrogen cycles from test readings, grades ammonia toxicity by pH and temperature (un-ionized NH₃), and gives stage-by-stage guidance with a cycle history.</li>
-                <li><strong>Water Log &amp; Budget</strong>: water-test trends with alerts, water-change and feeding schedules, a maintenance log, and spending by category across tanks.</li>
-                <li><strong>Supplies</strong>: equipment sized to the tank and per-species food lists with retailer links; shareable read-only tank cards.</li>
-                <li>Modular Vite + React architecture: pure calculation engine, single Zustand store, CSS Modules on shared design tokens with light and dark themes.</li>
+                <li><strong>Compatibility engine:</strong> rules-based fish and plant matching with explained conflicts and filtration-aware bioload</li>
+                <li><strong>Cycle Assistant:</strong> nitrogen-cycle tracking with pH- and temperature-adjusted ammonia (NH₃) toxicity grading</li>
+                <li><strong>Water analytics:</strong> parameter trends, alerts, maintenance schedules and per-tank budgeting</li>
+                <li><strong>Smart supplies:</strong> equipment sized to the tank, per-species food lists and shareable tank cards</li>
+                <li><strong>Architecture:</strong> Vite + React, pure calculation engine, Zustand store, design-token theming (light / dark)</li>
               </ul>
               <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Zustand</li><li class="chip">CSS Modules</li><li class="chip">Three.js</li><li class="chip">Design tokens</li></ul>
               <p><a class="btn btn--primary" href="https://yurihtal.github.io/aquaverse-site/" target="_blank" rel="noopener">Try AquaVerse<span class="sr-only"> (opens in a new tab)</span>
@@ -450,12 +453,12 @@
           <div class="system__copy">
             <span class="part__tool mono">Website · pre-launch · EN / FR</span>
             <h3>InBrasil Canada</h3>
-            <p class="system__pitch">A bilingual product website for my recycled-plastic decking and building-products company.</p>
+            <p class="system__pitch">Bilingual (EN / FR) product website for my recycled-plastic building-products company.</p>
             <ul class="system__points">
-              <li>94 pages in English and French, generated as a static site from a Shopify theme, so it can move to Shopify checkout later without a rewrite.</li>
-              <li>Product pages with SketchUp-ready models, 3D previews, spec sheets and specifier packs; a deck estimator and product compare.</li>
-              <li>Automated tests for the theme, estimator and every built page, plus WCAG 2.1 AA accessibility checks with axe-core.</li>
-              <li>Published from a private repository: CI builds the site and pushes only the finished pages to a public repo.</li>
+              <li><strong>Static generation:</strong> 94 pages built from a Shopify theme, ready for Shopify checkout without a rewrite</li>
+              <li><strong>Product tooling:</strong> 3D previews, SketchUp-ready models, spec sheets, deck estimator and product compare</li>
+              <li><strong>Quality gates:</strong> automated theme, estimator and page tests plus WCAG 2.1 AA checks (axe-core)</li>
+              <li><strong>CI/CD:</strong> GitHub Actions builds from a private repo and publishes only the finished pages</li>
             </ul>
             <ul class="chips" role="list"><li class="chip">Shopify Liquid</li><li class="chip">Static site build</li><li class="chip">JavaScript</li><li class="chip">i18n</li><li class="chip">axe-core</li><li class="chip">GitHub Actions</li></ul>
             <p><a class="btn btn--primary" href="https://yurihtal.github.io/inBrasil-site/" target="_blank" rel="noopener">Visit the site<span class="sr-only"> (opens in a new tab)</span>
@@ -468,13 +471,13 @@
           <div class="system__copy">
             <span class="part__tool mono">Desktop app · v0.1.1 · Linux</span>
             <h3>Life Planner</h3>
-            <p class="system__pitch">A local-first, keyboard-driven planner that connects long-term goals to what actually happens each day.</p>
+            <p class="system__pitch">Local-first, keyboard-driven desktop planner that links long-term goals to daily execution.</p>
             <ul class="system__points">
-              <li><strong>Goals to time blocks</strong>: 12-week cycles with at most 3 active goals, broken into projects and tasks, then dragged onto a 15-minute day timeline with a capacity bar that keeps 20% slack.</li>
-              <li><strong>Learns real durations</strong>: logs planned vs. actual time and computes a personal estimate multiplier that sizes new blocks.</li>
-              <li><strong>Rituals</strong>: morning plan (up to 3 most important tasks), evening shutdown where every open task gets a decision, and a weekly review with a 3-minute lite version.</li>
-              <li><strong>Humane habits</strong>: if-then plans with a validated cue, minimum version and backup plan; consistency scoring, "never miss twice" nudges, repair tokens and graduation instead of fragile streaks.</li>
-              <li>Sync-ready SQLite schema (time-ordered IDs, per-field change log, hybrid logical clocks), atomic writes, daily backups and full export; pure, unit-tested planning rules behind a swappable platform layer.</li>
+              <li><strong>Goal-to-time-block planning:</strong> 12-week cycles, up to 3 active goals, 15-minute timeline with a 20% capacity buffer</li>
+              <li><strong>Adaptive estimation:</strong> planned-vs-actual tracking computes a personal duration multiplier</li>
+              <li><strong>Guided rituals:</strong> morning plan, evening shutdown and weekly review</li>
+              <li><strong>Behavioural habit engine:</strong> if-then plans, consistency scoring, "never miss twice" nudges and repair tokens</li>
+              <li><strong>Sync-ready data layer:</strong> SQLite with time-ordered IDs, per-field change log and hybrid logical clocks; atomic writes and daily backups</li>
             </ul>
             <ul class="chips" role="list"><li class="chip">Electron</li><li class="chip">React</li><li class="chip">SQLite</li><li class="chip">esbuild</li><li class="chip">Node test runner</li><li class="chip">.deb · AppImage</li></ul>
             <p><a class="btn btn--primary" href="https://github.com/YurihTal/life-planner-showcase" target="_blank" rel="noopener">See screenshots &amp; design<span class="sr-only"> (opens in a new tab)</span>
